@@ -15,7 +15,6 @@ class myReadable extends Readable {
       this.push(null);
     } else {
       const buf = Buffer.from(`${this._index}`);
-      //const buf = `${this._index}`;
       console.log(`Added: ${this._index}. Could next be added? `, this.push(buf));
       console.log('buffer ', this._readableState.buffer.head);
     }
@@ -24,11 +23,11 @@ class myReadable extends Readable {
 
 const counter = new myReadable({ highWaterMark: 2}); //, encoding: "utf8"
 
-//console.log(`Received: ${counter.read()}`);
+console.log(`Received: ${counter.read()}`);
 
-counter.on('data', chunk => {
-  console.log(`Received: ${chunk.toString()}`);
-});
+// counter.on('data', chunk => {
+//   console.log(`Received: ${chunk.toString()}`);
+// });
 
 
 
