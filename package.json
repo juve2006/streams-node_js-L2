@@ -1,0 +1,8 @@
+{
+  "name": "course-fs",
+  "version": "1.0.0",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "sinon": "^13.0.2"
+  }
+}
