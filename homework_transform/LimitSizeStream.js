@@ -8,17 +8,17 @@ class LimitSizeStream extends stream {
     this.limit = options.limit;
     this.counter = 0;
   }
-/*_transform — это приватный метод, который вызывается внутренними методами класса Transform для преобразования порции данных.
-Он принимает 3 параметра: chunk (часть данных), encoding (кодировка, если chunk это строка),
-callback (функция, которая вызывается после успешной или неудачной записи).
- */
+  /*_transform — это приватный метод, который вызывается внутренними методами класса Transform для преобразования порции данных.
+  Он принимает 3 параметра: chunk (часть данных), encoding (кодировка, если chunk это строка),
+  callback (функция, которая вызывается после успешной или неудачной записи).
+   */
   _transform(chunk, encoding, callback) {
     this.counter += chunk.length;
     if (this.counter > this.limit) {
       callback(new LimitExceededError());
     } else {
       callback(null,chunk);
-      console.log('Chunk added');
+      console.log('Chunk added: ', chunk.toString());
     }
   }
 }
