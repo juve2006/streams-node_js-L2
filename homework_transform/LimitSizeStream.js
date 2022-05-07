@@ -15,6 +15,7 @@ class LimitSizeStream extends stream {
   _transform(chunk, encoding, callback) {
     this.counter += chunk.length;
     if (this.counter > this.limit) {
+      console.log ('Error')
       callback(new LimitExceededError());
     } else {
       callback(null,chunk);
